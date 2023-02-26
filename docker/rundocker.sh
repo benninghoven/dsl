@@ -1,7 +1,10 @@
 #!/bin/bash
 
-IMAGE="name_me"
-CONTAINER="name_me"
+# must be lowercase!
+NAME="bettercatalog"
+
+IMAGE=$NAME"_image"
+CONTAINER=$NAME"_container"
 
 found=$(docker images -q $IMAGE)
 
@@ -14,7 +17,8 @@ else
 fi
 
 docker run -it \
-    -v $(pwd)/app:/app
+    -p 3000:3000 \
+    -v "$(pwd)"/src:/app/src \
     --name $CONTAINER \
     $IMAGE
 
