@@ -1,2 +1,0 @@
-osascript *.applescript
-
