@@ -1,8 +1,9 @@
 @echo off
-[FIXME USERNAME CANNOT HAVE SPACES]
 
-set IMAGE=groupassignment1_image
-set CONTAINER=groupassignment1_container
+set NAME=os_assignment2
+
+set IMAGE=%NAME%_image
+set CONTAINER=%NAME%_container
 
 for /f "tokens=*" %%i in ('docker images -q %IMAGE%') do set found=%%i
 
@@ -13,8 +14,11 @@ if [%found%] == [] (
   echo 🐳 Image found
 )
 
+set "current_dir=%CD%"
+set "current_dir=\"!current_dir!\""
+
 docker run -it ^
-    -v %cd%/main.cc:/app/main.cc ^
+    -v %current_dir%/src:/app/src ^
     --name %CONTAINER% ^
     %IMAGE%
 
