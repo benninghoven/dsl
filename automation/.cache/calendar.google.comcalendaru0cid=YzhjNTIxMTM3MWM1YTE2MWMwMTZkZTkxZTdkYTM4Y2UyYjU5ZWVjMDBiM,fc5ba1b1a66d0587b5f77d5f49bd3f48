@@ -1,0 +1,23 @@
+status: 301
+content-type: application/binary
+vary: Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site
+cache-control: private, max-age=7776000
+pragma: no-cache
+expires: Sat, 11 Mar 2023 20:17:05 GMT
+date: Sat, 11 Mar 2023 20:17:05 GMT
+location: https://calendar.google.com/calendar/u/0/r?cid=YzhjNTIxMTM3MWM1YTE2MWMwMTZkZTkxZTdkYTM4Y2UyYjU5ZWVjMDBiMDNkYWE3YTZmMWNiYzc1MmE5ZTBhZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t
+p3p: CP="This is not a P3P policy! See g.co/p3phelp for more info."
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+cross-origin-embedder-policy-report-only: require-corp; report-to="calendar_coop_coep"
+report-to: {"group":"calendar_coop_coep","max_age":2592000,"endpoints":[{"url":"https://csp.withgoogle.com/csp/report-to/calendar"}]}
+cross-origin-opener-policy-report-only: same-origin-allow-popups; report-to="calendar_coop_coep"
+server: ESF
+content-length: 0
+x-xss-protection: 0
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+set-cookie: NID=511=n16vQlXWhG7D0pze-JgiGVMhv-GH2gFIh_KuXSa4Dyp6rtOJWcxceAkZzCQ4vnuQG1wKuKb6dC7P5kds17Yn1uWlxr_SYzN6ULDX2s-Ax7Sbb2QwfEw0Xrl36D9Q-K1GmVTUqILbQ2cmLUxpRFM0kQIyv1bQAgSK71D33FH08Nk; expires=Sun, 10-Sep-2023 20:17:05 GMT; path=/; domain=.google.com; HttpOnly
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+-x-permanent-redirect-url: https://calendar.google.com/calendar/u/0/r?cid=YzhjNTIxMTM3MWM1YTE2MWMwMTZkZTkxZTdkYTM4Y2UyYjU5ZWVjMDBiMDNkYWE3YTZmMWNiYzc1MmE5ZTBhZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t
+content-location: https://calendar.google.com/calendar/u/0?cid=YzhjNTIxMTM3MWM1YTE2MWMwMTZkZTkxZTdkYTM4Y2UyYjU5ZWVjMDBiMDNkYWE3YTZmMWNiYzc1MmE5ZTBhZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t
+

@@ -1,0 +1,7 @@
+Child process (PID=86063) is running
+loop 0
+loop 1
+loop 2
+Child process is done
+Parent process (PID=86061) is waiting for child (PID=86063) to finish...
+Child process (PID=86063) finished with exit status 0
