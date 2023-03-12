@@ -1,3 +1,3 @@
-python3 focus.py
+python3 automatecomputer.py
 
 
