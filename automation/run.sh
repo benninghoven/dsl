@@ -1,3 +1,1 @@
-python3 automatecomputer.py
-
-
+python3 main.py | less
