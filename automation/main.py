@@ -13,7 +13,7 @@ def CurrentTime():
 class Activity:
     def __init__(self,event,calName):
         self.calName = calName
-        self.name = event.summary
+        self.name = event.summary.strip()
         self.start = event.start
         self.end = event.end
         self.all_day = event.all_day
@@ -24,7 +24,8 @@ class Activity:
             self.timeZone = "ERROR WRONG TIMEZONE"
     
     def __str__(self):
-        return f"""[{self.calName} {self.name}] {self.start.hour}:{self.start.minute} starts in: {self.TimeLeft()}"""
+        return f"{self.name} {self.start}"
+
 
     def TimeLeft(self, time=None):
         time = time or CurrentTime()
@@ -47,6 +48,7 @@ def GetActivities() -> list[Activity]:
     NameUrlList = GetCalendarNameAndUrl()
     for name, url in NameUrlList:
         for event in events(url):
+            print(event) # TEMP
             temp = Activity(event,name)
             activityList.append(temp)
     return activityList
@@ -56,9 +58,24 @@ def GetTodaysActivities(lst: list[Activity]) -> list[Activity]:
     for activity in lst:
         if activity.TimeLeft().days == 0:
             todaysActivities.append(activity)
+    todaysActivities = sorted(todaysActivities, key=lambda x: x.TimeLeft())
     return todaysActivities
 
-todaysActivities = GetTodaysActivities(GetActivities())
+def PrintActivities(lst: list[Activity]) -> None:
+    longestCalName = max(len(a.calName) for a in lst)
+    longestName = max(len(a.name) for a in lst)
+    print(f"{'CalName': <{longestCalName}} {'Name': <{longestName}}")
+    print("-" * (longestCalName + longestName + 30))
+    for a in lst:
+        tl = a.TimeLeft().total_seconds() / 3600
+        print(f"{a.calName: <{longestCalName}} | {a.name: <{longestName}} | {a.start.hour:>2}:{a.start.minute:<2} | {str(tl)}")
 
-for act in todaysActivities:
-    print(act)
+
+activities = GetActivities()
+
+for x in activities:
+    if x.calName == "Rest":
+        print(x.start,"|",x.TimeLeft().total_seconds() / 3600)
+
+PrintActivities(activities)
+
