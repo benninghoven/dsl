@@ -1,10 +1,11 @@
-from activity import Activity
+from activitycontainer import ActivityContainer
+from testinternetconnection import TestInternetConnection
 
+urlFilePath = "../data/SecretCalendarLinks.txt"
 
 if __name__ == '__main__':
-    print("This script is being called as the main module")
-    b = Activity()
-    print(b)
-else:
-    print("This script is being imported as a module")
-
+    if TestInternetConnection():
+        b = ActivityContainer(urlFilePath)
+        print(b.PrintActivities(b.TodaysActivities()))
+    else:
+        print("no internet connection...")

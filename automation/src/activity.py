@@ -13,8 +13,6 @@ class Activity:
         self.recurring = event.recurring
         self.status = event.status
         self.timeZone = str(self.start).split("-")[-1]
-        if self.timeZone != TIMEZONE:
-            self.timeZone = "ERROR WRONG TIMEZONE"
     
     def __str__(self):
         return f"{self.name} {self.start}"
