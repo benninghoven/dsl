@@ -1,5 +1,6 @@
 from activity import Activity
 from currenttime import CurrentTime
+from float_to_time import FloatToTime
 from icalevents.icalevents import events
 
 
@@ -50,9 +51,16 @@ class ActivityContainer:
             return
         longestCalName = max(len(a.calName) for a in lst)
         longestName = max(len(a.name) for a in lst)
-        print(f"{'name':<{longestName}} | timeleft")
-        print("-" * (longestCalName + longestName + 30))
+        ct = CurrentTime()
+        print(f"current time [{ct.hour:>2}:{ct.minute:<2}]")
+        print(" day| start | left | name ")
+        print("-" * 50)
         for a in lst:
             tl = a.TimeLeft().total_seconds() / 3600
-            print(f"{a.name:<{longestName}} | {str(tl)}")
+            output = ""
+            output += f" {a.start.day:<2} |"
+            output += f" {a.start.hour:>2}:{a.start.minute:<2} |"
+            output += f" {FloatToTime(tl)} |"
+            output += f" {a.name:<{longestName}} |"
+            print(output)
 
