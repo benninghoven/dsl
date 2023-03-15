@@ -1,5 +1,5 @@
 from icalevents.icalevents import events
-from currenttime import CurrentTime
+from .currenttime import CurrentTime
 
 class Activity:
     def __init__(self,event = None ,calName = None):

@@ -1,6 +1,6 @@
-from activity import Activity
-from currenttime import CurrentTime
-from float_to_time import FloatToTime
+from .activity import Activity
+from .currenttime import CurrentTime
+from .float_to_time import FloatToTime
 from icalevents.icalevents import events
 
 
@@ -37,7 +37,7 @@ class ActivityContainer:
         today = CurrentTime().day
         todaysActivities = []
         for activity in self.activityList:
-            if activity.start.day == today and activity.TimeLeft().total_seconds() >= 0:
+            if activity.start.day == today and activity.TimeLeft().total_seconds() >= -60:
                 todaysActivities.append(activity)
         todaysActivities = sorted(todaysActivities, key=lambda x: x.TimeLeft())
         return todaysActivities
