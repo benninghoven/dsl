@@ -1,7 +1,8 @@
 import sys
 import datetime
+from getparentdir import GetParentDir
 
-projpath = "/Users/devin/Sandbox/dsl/automation"
+projpath = GetParentDir()
 sys.path.append(projpath)
 
 urlFilePath = projpath + "/data/SecretCalendarLinks.txt"
@@ -14,33 +15,22 @@ from src.testinternetconnection import TestInternetConnection
 from src.currenttime import CurrentTime
 from src.nametoscripts import NameToScripts
 from src.executecommands import ExecuteAppleCommand
+from doestimematch import DoesTimeMatch
 
-def DoesTimeMatch(td1, td2) -> bool:
-    return td1.hour == td2.hour and td1.minute == td2.minute
-
-        #scripts = NameToScripts("Leet Code")
-        #ExecuteAppleCommand(scripts,projpath)
 if __name__ == '__main__':
     if TestInternetConnection():
         ct = CurrentTime()
         ac = ActivityContainer(urlFilePath)
         todaysActivities = ac.TodaysActivities()
+"""
+        name = "Study Block"
+        scripts = NameToScripts(name)
+        ExecuteAppleCommand(scripts,projpath)
+        """
+
         if len(todaysActivities) and DoesTimeMatch(ct,todaysActivities[0].start):
-            name = todaysActivities[0]
-            name = "Code"
+            name = todaysActivities[0].name
             scripts = NameToScripts(name)
             ExecuteAppleCommand(scripts,projpath)
     else:
         print("no internet connection...")
-
-"""
-            for a in todaysActivities:
-                script = NameToScript(a.name)
-                if script:
-                    scriptPath = projpath + "/src/scripts/"
-                    scriptPath += NameToScript(a.name)
-                    ExecuteCommand("osascript " + scriptPath)
-                    print(a.name, scriptPath)
-                else:
-                    print(a.name, "No script!")
-                    """

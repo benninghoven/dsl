@@ -1,6 +1,5 @@
 def NameToScripts(name: str) -> list[str]:
     lst = []
-
     if name == "Leet Code": # launch website
         file = "launchgooglewebsite.applescript"
         args = [
@@ -31,6 +30,19 @@ def NameToScripts(name: str) -> list[str]:
         args = "iTerm"
         lst.append(f"{file} {args}")
 
+    elif "Study Block" in name:
+        file = "launchgooglewebsite.applescript"
+        args = [
+                "https://www.fullerton.edu/ecs/cs/resources/advisement.php",
+                "https://chat.openai.com/chat",
+                "https://learn.zybooks.com/library",
+                "https://csufullerton.instructure.com/",
+                ]
+        argString = ""
+        for arg in args:
+            argString += arg
+            argString += " "
+        lst.append(f"{file} {argString}")
     else:
         pass
     return lst
