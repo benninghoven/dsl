@@ -1,2 +1,1 @@
-osascript ./launchleetcode.apple
-python3 main.py | less
+python3 main.py

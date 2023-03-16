@@ -1,6 +1,8 @@
-tell application "Google Chrome"
-    activate
-    open location "https://leetcode.com/problemset/all/"
-end tell
-
-
+on run argv
+    tell application "Google Chrome"
+        activate
+        repeat with i from 1 to count of argv
+            open location item i of argv
+        end repeat
+    end tell
+end run
