@@ -1,6 +1,7 @@
 from .activity import Activity
 from .currenttime import CurrentTime
 from .float_to_time import FloatToTime
+import datetime
 from icalevents.icalevents import events
 
 
@@ -29,7 +30,7 @@ class ActivityContainer:
     def GetActivities(self):
         NameUrlList = self.ReadFile()
         for name, url in NameUrlList:
-            for event in events(url,start = CurrentTime()):
+            for event in events(url,start = CurrentTime() - datetime.timedelta(minutes=1)):
                 temp = Activity(event,name)
                 self.activityList.append(temp)
 

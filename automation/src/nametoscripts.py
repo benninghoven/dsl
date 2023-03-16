@@ -3,10 +3,15 @@ def NameToScripts(name: str) -> list[str]:
 
     if name == "Leet Code": # launch website
         file = "launchgooglewebsite.applescript"
-        args = ["https://leetcode.com/problemset/all/",
+        args = [
                 "https://www.bigocheatsheet.com/",
+                "https://leetcode.com/problemset/all/",
                 ]
-        lst.append(f"{file} {args}")
+        argString = ""
+        for arg in args:
+            argString += arg
+            argString += " "
+        lst.append(f"{file} {argString}")
 
     elif name == "Code": # launch iterm2,website
 
@@ -23,7 +28,7 @@ def NameToScripts(name: str) -> list[str]:
         lst.append(f"{file} {argString}")
 
         file = "openapp.applescript"
-        args = ["iTerm"]
+        args = "iTerm"
         lst.append(f"{file} {args}")
 
     else:
