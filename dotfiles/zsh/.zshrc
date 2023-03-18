@@ -1,4 +1,5 @@
 PATH=$PATH:/opt/homebrew/bin
+export EDITOR=nvim
 # CUSTOMIZE THIS AS YOU PLEASE
 #= Visual
 #clear
@@ -16,8 +17,12 @@ alias vr="vim ~/.config/nvim/init.vim"
 #alias tmux="TERM=screen-256color-bce tmux" # fixes tmux sessions not having color
 alias tkill="tmux kill-server"
 alias vim="nvim"
-
+alias myip="ipconfig getifaddr en0"
+alias cleand="bash ~/Sandbox/dsl/docker/scripts/cleanup.sh"
 PROMPT="%~"$'\n'
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+cat ~/Sandbox/dsl/dotfiles/fish.txt
+

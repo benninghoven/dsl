@@ -1,13 +1,12 @@
 import subprocess
 
-def ExecuteAppleCommand(commands: list[str], absPath: str):
+def ExecuteAppleCommand(scripts: str, absPath: str) -> None:
+
     if absPath == None:
         pass # do relative path instead
-    if commands == None:
-        raise ValueError("Must have two parameters")
-    for command in commands:
-        fullCmd = "osascript "
-        fullCmd += absPath + "/src/scripts/"
-        fullCmd += command
-        process = subprocess.Popen(fullCmd.split(), stdout=subprocess.PIPE)
+    if scripts == None:
+        raise ValueError("must have a parameter")
 
+    for script in scripts:
+        fullScript = "osascript " + absPath + "/src/scripts/" + script
+        process = subprocess.Popen(fullScript.split(), stdout=subprocess.PIPE)

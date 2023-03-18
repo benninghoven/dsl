@@ -19,14 +19,10 @@ from doestimematch import DoesTimeMatch
 
 if __name__ == '__main__':
     if TestInternetConnection():
+
         ct = CurrentTime()
         ac = ActivityContainer(urlFilePath)
         todaysActivities = ac.TodaysActivities()
-"""
-        name = "Study Block"
-        scripts = NameToScripts(name)
-        ExecuteAppleCommand(scripts,projpath)
-        """
 
         if len(todaysActivities) and DoesTimeMatch(ct,todaysActivities[0].start):
             name = todaysActivities[0].name

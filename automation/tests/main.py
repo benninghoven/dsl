@@ -1,19 +1,31 @@
-import unittest
+import os
+import sys
+import time
 
-def add_numbers(x,y):
-    if x == None or y == None:
-        raise ValueError("Requires two parameters")
-    if not isinstance(x,int) or not isinstance(y,int):
-        raise ValueError("Must be type<int>")
-    return x + y
+projpath = os.path.abspath(os.path.join(os.getcwd(), os.pardir))
+sys.path.append(projpath)
 
-class TestAddNumbers(unittest.TestCase):
-    def test_add_numbers(self):
-        result = add_numbers(2, 3)
-        self.assertEqual(result, 5)
-    def test_add_numbers(self):
-        result = add_numbers("string", 3)
-        self.assertEqual(result, "Must be type<int>")
+from src.activitycontainer import ActivityContainer
+from src.testinternetconnection import TestInternetConnection
+from src.currenttime import CurrentTime
+from src.nametoscripts import NameToScripts
+from src.executecommands import ExecuteAppleCommand
+from src.doestimematch import DoesTimeMatch
+
+urlFilePath = projpath + "/data/SecretCalendarLinks.txt"
+phoneNumberPath = projpath + "/data/phonenumber.txt"
+with open(phoneNumberPath, 'r') as file:
+    phoneNumber = file.read()
+
 
 if __name__ == '__main__':
-    unittest.main()
+
+    ac = ActivityContainer(urlFilePath)
+    todaysActivities = ac.TodaysActivities()
+
+    ct = CurrentTime()
+
+    name = todaysActivities[0].name
+
+    scripts = NameToScripts(name)
+    ExecuteAppleCommand(scripts,projpath)

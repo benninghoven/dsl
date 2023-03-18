@@ -1,48 +1,21 @@
-def NameToScripts(name: str) -> list[str]:
-    lst = []
-    if name == "Leet Code": # launch website
-        file = "launchgooglewebsite.applescript"
-        args = [
-                "https://www.bigocheatsheet.com/",
-                "https://leetcode.com/problemset/all/",
-                ]
-        argString = ""
-        for arg in args:
-            argString += arg
-            argString += " "
-        lst.append(f"{file} {argString}")
+def NameToScripts(name: str) -> str:
 
-    elif name == "Code": # launch iterm2,website
+    scripts = []
 
-        file = "launchgooglewebsite.applescript"
-        args = [
-                "https://music.youtube.com/",
-                "https://github.com/benninghoven?tab=repositories",
-                "https://chat.openai.com/chat",
-                ]
-        argString = ""
-        for arg in args:
-            argString += arg
-            argString += " "
-        lst.append(f"{file} {argString}")
+    name = name.upper()
 
-        file = "openapp.applescript"
-        args = "iTerm"
-        lst.append(f"{file} {args}")
+    if "LEET CODE" in name:
+        script = "launchgooglewebsite.applescript https://www.bigocheatsheet.com/ https://leetcode.com/problemset/all/"
+        scripts.append(script)
 
-    elif "Study Block" in name:
-        file = "launchgooglewebsite.applescript"
-        args = [
-                "https://www.fullerton.edu/ecs/cs/resources/advisement.php",
-                "https://chat.openai.com/chat",
-                "https://learn.zybooks.com/library",
-                "https://csufullerton.instructure.com/",
-                ]
-        argString = ""
-        for arg in args:
-            argString += arg
-            argString += " "
-        lst.append(f"{file} {argString}")
-    else:
-        pass
-    return lst
+    elif "CODE" in name:
+        script = "launchgooglewebsite.applescript https://github.com/benninghoven?tab=repositories https://chat.openai.com/chat https://music.youtube.com/"
+        scripts.append(script)
+        script = "openapp.applescript iTerm"
+        scripts.append(script)
+
+    elif "STUDY" in name:
+        script = "launchgooglewebsite.applescript https://www.fullerton.edu/ecs/cs/resources/advisement.php https://chat.openai.com/chat https://learn.zybooks.com/library https://csufullerton.instructure.com/"
+        scripts.append(script)
+
+    return scripts
