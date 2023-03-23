@@ -1,0 +1,14 @@
+Programmers often place assertions at the 
+start of a function to check for valid input, 
+and after a function call to check for valid output.
+
+
+dog = 15
+
+def func(inp):
+    assertblah(dog) == 4
+    return dog + 1
+
+assertTrue(dog) = 10
+
+

@@ -1,24 +1,22 @@
 PATH=$PATH:/opt/homebrew/bin
+PATH=$PATH:/Users/devin/Library/Python/3.9/bin
 export EDITOR=nvim
-# CUSTOMIZE THIS AS YOU PLEASE
-#= Visual
-#clear
-#neofetch
-#= Utility
+
 alias cl="clear"
-#alias rf="clear;neofetch"
 alias src="source ~/.zshrc;echo zshrc sourced 🦑"
 alias ll="ls -la --color"
 alias ls="ls --color"
 alias genkey="ssh-keygen -t rsa -b 4096"
 alias vz="vim ~/.zshrc"
 alias vr="vim ~/.config/nvim/init.vim"
-#alias tmux="TERM=screen-256color tmux" # fixes tmux sessions not having color
-#alias tmux="TERM=screen-256color-bce tmux" # fixes tmux sessions not having color
 alias tkill="tmux kill-server"
 alias vim="nvim"
+alias v="nvim"
 alias myip="ipconfig getifaddr en0"
 alias cleand="bash ~/Sandbox/dsl/docker/scripts/cleanup.sh"
+alias t="tmux"
+
+
 PROMPT="%~"$'\n'
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
